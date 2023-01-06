@@ -1,0 +1,32 @@
+version: "3.9"
+
+services:
+  backend:
+    build:
+      context: ../
+      dockerfile: ci/Dockerfile
+    ports:
+      - "9000:9000"
+    command: ["uvicorn", "app:app", "--port", "9000", "--host",  "0.0.0.0", "--reload"]
+    restart: always
+    depends_on:
+      - mongo
+    env_file:
+      - .env
+    volumes:
+      - ../src:/src/app
+
+  mongo:
+    image: mongo:4.2.23
+    restart: always
+    ports:
+      - "27017:27017"
+    env_file:
+      - .env
+    volumes:
+      - ./init-mongo:/docker-entrypoint-initdb.d/:ro
+      - mongovolume:/data/db
+
+
+volumes:
+  mongovolume:
