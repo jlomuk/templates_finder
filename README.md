@@ -31,7 +31,7 @@ docker-compose -f ci/docker-compose.yaml up
 
 ### 2. POSTMAN COLLECTION:
 
-Import and use postman collections for testing api
+Import and use [postman collections](https://www.postman.com/) for testing api
 
 ```sh
 templates_finder/Template_finder_collection.postman_collection.json
