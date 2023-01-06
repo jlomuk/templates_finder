@@ -7,7 +7,8 @@ async def check_exists_template(form: dict, db):
     validated_form = {key: root_validator(value) for key, value in form.items()}
     result = await find_all_forms(db)
     logger.debug(f"fetch data from db : {result}")
-    for key, value in result.items():
-        if all(k in validated_form and validated_form[k] == v for k, v in value.items()):
-            return key
+
+    for name, fields in result.items():
+        if validated_form.items() >= fields.items():
+            return {"exists_template": name}
     return validated_form

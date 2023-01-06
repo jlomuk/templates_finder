@@ -1,0 +1,214 @@
+{
+	"info": {
+		"_postman_id": "e918bb25-93d9-48b4-a286-9accb0a0940b",
+		"name": "Template_finder_collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "15491800"
+	},
+	"item": [
+		{
+			"name": "success_find_template",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "username",
+							"value": "SomeName",
+							"type": "text"
+						},
+						{
+							"key": "registered_date",
+							"value": "01.01.2013",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:9000/get_form",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"get_form"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "not_found_template",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "not_exist_name",
+							"value": "John",
+							"type": "text"
+						},
+						{
+							"key": "not_exist_phone",
+							"value": "+7 990 123 12 12",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:9000/get_form",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"get_form"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "more fields in the form",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email_office",
+							"value": "gogf@go.ru",
+							"type": "text"
+						},
+						{
+							"key": "phone_office",
+							"value": "+79991233545",
+							"type": "text"
+						},
+						{
+							"key": "some_value1",
+							"value": "fdsf",
+							"type": "text"
+						},
+						{
+							"key": "some_value2",
+							"value": "sdff",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:9000/get_form",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"get_form"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "fields exists, but other type",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email_office",
+							"value": "not_valid_email>text",
+							"type": "text"
+						},
+						{
+							"key": "phone_office",
+							"value": "+79991233545",
+							"type": "text"
+						},
+						{
+							"key": "some_value1",
+							"value": "fdsf",
+							"type": "text"
+						},
+						{
+							"key": "some_value2",
+							"value": "sdff",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:9000/get_form",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"get_form"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "one field exists in template",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email_office",
+							"value": "one_field_exist",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:9000/get_form",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"get_form"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "empty form",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9000/get_form",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"get_form"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
